@@ -3,9 +3,15 @@ import { API_URL } from "../assets/data";
 
 import TicketOption from "./TicketOption";
 
-import { TicketOptionsData } from "../assets/types";
+import { IVisitUsData } from "../assets/types";
 
 import "./VisitUs.scss";
+import Grid from "./Grid";
+
+const SECTION_TITLES = [
+  "Plan Your Day with Us",
+  "Facilities, Services and Accessibility",
+];
 
 const VisitUs = () => {
   const { isLoading, error, data } = useFetch(API_URL);
@@ -31,14 +37,14 @@ const VisitUs = () => {
         <div className="visitUs__ticketOptions">
           <TicketOption
             title="Ticket Prices"
-            items={Object.values((data as TicketOptionsData).tickets).sort(
+            items={Object.values((data as IVisitUsData).tickets).sort(
               (a, b) => a.price - b.price
             )}
             buttonText="BUY A TICKET"
           ></TicketOption>
           <TicketOption
             title="Annual Membership Prices"
-            items={Object.values((data as TicketOptionsData).membershipsY).sort(
+            items={Object.values((data as IVisitUsData).membershipsY).sort(
               (a, b) => a.price - b.price
             )}
             buttonText="BUY A MEMBERSHIP"
@@ -57,7 +63,17 @@ const VisitUs = () => {
             beauty of our animal residents.
           </h4>
         </div>
-        <div>Uselessgrid</div>
+        {Object.values((data as IVisitUsData).content)
+          .reverse()
+          .map((section, key) => {
+            return (
+              <Grid
+                title={SECTION_TITLES[key]}
+                items={Object.values(section)}
+                key={key}
+              ></Grid>
+            );
+          })}
       </>
     );
   }
