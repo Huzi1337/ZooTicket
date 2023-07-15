@@ -2,6 +2,7 @@ import Navbar from "./components/Navbar";
 import "./App.scss";
 import VisitUs from "./components/VisitUs";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Footer from "./components/Footer";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,7 @@ const router = createBrowserRouter([
           <>
             <Navbar></Navbar>
             <VisitUs></VisitUs>
+            <Footer></Footer>
           </>
         ),
       },

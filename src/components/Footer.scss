@@ -1,0 +1,38 @@
+@use "../assets/colors";
+
+.footer,
+.footer__sectionCol,
+.footer__sectionRow {
+  display: flex;
+}
+
+.footer {
+  width: 100%;
+  background-color: colors.$lightGray;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 3% 100px;
+  margin-top: 100px;
+
+  hr {
+    margin-top: auto;
+  }
+}
+
+.footer__sectionCol {
+  flex-direction: column;
+
+  h4 {
+    margin-bottom: 24px;
+  }
+  h6 {
+    margin-bottom: 10px;
+  }
+}
+
+.footer__sectionRow {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  flex-grow: 1;
+  margin-bottom: 60px;
+}
