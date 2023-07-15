@@ -1,7 +1,9 @@
 @use "../assets/colors";
 
 .listItem__container {
+  width: 100%;
   padding: 9px 16px;
+  margin-top: 5px;
   display: flex;
   justify-content: space-between;
   background-color: colors.$white;

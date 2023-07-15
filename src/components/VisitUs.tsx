@@ -14,7 +14,8 @@ const VisitUs = () => {
 
   if (error) return <h1>An error has occured. {error}</h1>;
 
-  if (data)
+  if (data) {
+    console.log(data);
     return (
       <>
         <div className="visitUs__headScreen">
@@ -27,20 +28,39 @@ const VisitUs = () => {
           <h3>General Entry: a single-day adventure</h3>
           <h3> Annual Pass: All year round</h3>
         </div>
-        <div>
+        <div className="visitUs__ticketOptions">
           <TicketOption
             title="Ticket Prices"
-            items={Object.values((data as TicketOptionsData).tickets)}
+            items={Object.values((data as TicketOptionsData).tickets).sort(
+              (a, b) => a.price - b.price
+            )}
+            buttonText="BUY A TICKET"
           ></TicketOption>
           <TicketOption
             title="Annual Membership Prices"
-            items={Object.values((data as TicketOptionsData).membershipsY)}
+            items={Object.values((data as TicketOptionsData).membershipsY).sort(
+              (a, b) => a.price - b.price
+            )}
+            buttonText="BUY A MEMBERSHIP"
           ></TicketOption>
         </div>
-        <div>Zoomap</div>
+        <div className="visitUs__zooMap">
+          <h2>Interactive Zoo Map</h2>
+          <img src="/assets/visitUs/map.png"></img>
+          <h4>
+            Discover the essence of our Zoo through our interactive map!
+            Navigate through our vast and captivating grounds, showcasing a
+            diverse range of animal habitats and exciting exhibits. The map
+            provides a convenient guide to help you plan your visit, ensuring
+            you don't miss any of our must-see attractions. Explore the
+            pathways, locate feeding times, and find yourself captivated by the
+            beauty of our animal residents.
+          </h4>
+        </div>
         <div>Uselessgrid</div>
       </>
     );
+  }
 };
 
 export default VisitUs;
