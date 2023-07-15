@@ -1,0 +1,103 @@
+@use "../assets/colors";
+
+.navbar,
+.navbar_mobile {
+  position: sticky;
+  display: flex;
+  height: 80px;
+  width: 100%;
+  z-index: 1;
+  background-color: white;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: colors.$darkGray;
+  transition: transform 0.2s ease-in-out;
+
+  img {
+    height: 60px;
+    margin: 0 90px 0 10px;
+  }
+}
+
+.navbar {
+  justify-content: space-between;
+  padding: 10px 10%;
+
+  top: 0;
+  left: 0;
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+.options {
+  align-self: flex-start;
+  a {
+    margin-left: 40px;
+  }
+}
+
+.navbar.hide {
+  transform: translateY(-100%);
+}
+
+nav {
+  display: flex;
+}
+
+nav.sections {
+  flex: 2;
+  justify-content: space-between;
+  max-width: 800px;
+  font-family: Source Sans Pro;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  align-self: flex-end;
+}
+
+.active {
+  font-weight: bold;
+}
+
+.navbar_mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    display: none;
+  }
+  .navbar_mobile {
+    display: flex;
+
+    .navbar__menuButton {
+      margin-left: auto;
+      margin-right: 10px;
+      width: 24px;
+      height: 24px;
+      background-image: url(/icons/hamburger_base.svg);
+      background-color: transparent;
+    }
+    .navbar__menuButton.active {
+      background-image: url(/icons/hamburger_pressed.svg);
+    }
+    .navbar__dropDown {
+      position: fixed;
+      flex-direction: column;
+      border: 1px solid gray;
+      gap: 5px;
+      right: 0;
+      top: 60px;
+      padding: 10px;
+      background-color: white;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+}

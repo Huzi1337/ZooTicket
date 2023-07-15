@@ -1,0 +1,12 @@
+@use "../assets/colors";
+
+.listItem__container {
+  padding: 9px 16px;
+  display: flex;
+  justify-content: space-between;
+  background-color: colors.$white;
+}
+
+.listItem__container.dark {
+  background-color: colors.$fadingLightGray;
+}
