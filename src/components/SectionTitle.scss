@@ -1,0 +1,15 @@
+@use "../assets/colors";
+
+.sectionTitle__text {
+  text-align: center;
+}
+
+.sectionTitle__underline {
+  margin-top: 14px;
+  border-color: colors.$darkGray;
+  background-color: colors.$darkGray;
+  border-top-width: 2px;
+  border-bottom-width: 0;
+  max-width: 1100px;
+  width: 100%;
+}

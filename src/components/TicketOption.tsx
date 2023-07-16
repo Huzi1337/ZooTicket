@@ -8,9 +8,10 @@ interface Props {
   title: string;
   items: ItemData[];
   buttonText: string;
+  onClick: () => void;
 }
 
-const TicketOption = ({ title, items, buttonText }: Props) => {
+const TicketOption = ({ title, items, buttonText, onClick }: Props) => {
   return (
     <Card>
       <h2>{title}</h2>
@@ -34,6 +35,7 @@ const TicketOption = ({ title, items, buttonText }: Props) => {
             marginTop: "auto",
           },
         })}
+        onClick={onClick}
       >
         {buttonText}
       </Button>

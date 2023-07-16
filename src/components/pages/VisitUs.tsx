@@ -1,12 +1,13 @@
-import useFetch from "../hooks/fetch";
-import { API_URL } from "../assets/data";
+import useFetch from "../../hooks/fetch";
+import { useNavigate } from "react-router-dom";
+import { API_URL } from "../../assets/data";
 
-import TicketOption from "./TicketOption";
+import TicketOption from "../TicketOption";
 
-import { IVisitUsData } from "../assets/types";
+import { IVisitUsData } from "../../assets/types";
 
 import "./VisitUs.scss";
-import Grid from "./Grid";
+import Grid from "../Grid";
 
 const SECTION_TITLES = [
   "Plan Your Day with Us",
@@ -15,6 +16,9 @@ const SECTION_TITLES = [
 
 const VisitUs = () => {
   const { isLoading, error, data } = useFetch(API_URL);
+  const navigate = useNavigate();
+
+  const ticketClickHandler = () => navigate("/ticket");
 
   if (isLoading) return <h1>Loading...</h1>;
 
@@ -41,6 +45,7 @@ const VisitUs = () => {
               (a, b) => a.price - b.price
             )}
             buttonText="BUY A TICKET"
+            onClick={ticketClickHandler}
           ></TicketOption>
           <TicketOption
             title="Annual Membership Prices"
@@ -48,6 +53,7 @@ const VisitUs = () => {
               (a, b) => a.price - b.price
             )}
             buttonText="BUY A MEMBERSHIP"
+            onClick={() => {}}
           ></TicketOption>
         </div>
         <div className="visitUs__zooMap">
