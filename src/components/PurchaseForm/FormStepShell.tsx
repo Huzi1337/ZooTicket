@@ -7,11 +7,12 @@ type Props = {
   prevStep: () => void;
   nextStep: () => void;
   children: React.ReactNode;
+  step: number;
 };
 
-const FormStepShell = ({ prevStep, nextStep, children }: Props) => {
+const FormStepShell = ({ prevStep, nextStep, children, step }: Props) => {
   return (
-    <Card>
+    <Card wide={step > 0}>
       {children}
 
       <div className="formStepShell__buttonContainer">

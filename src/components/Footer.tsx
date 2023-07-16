@@ -18,7 +18,7 @@ const Footer = () => {
     <div className="footer">
       <div className="footer__sectionRow">
         {Object.entries(SITES).map((section, key) => (
-          <div className="footer__sectionCol">
+          <div key={key} className="footer__sectionCol">
             <h4 key={key}>{transformLabel(section[0])}</h4>
             {section[1].map((subSection, key) => (
               <h6 key={key}>{transformLabel(subSection)}</h6>

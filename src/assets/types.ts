@@ -3,6 +3,10 @@ export type ItemData = {
   type: string;
 };
 
+export type PriceData = {
+  [key: string]: ItemData;
+};
+
 export interface ITicketOptionsData {
   membershipsY: { [key: string]: ItemData };
   tickets: { [key: string]: ItemData };

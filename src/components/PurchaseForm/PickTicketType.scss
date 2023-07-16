@@ -1,0 +1,25 @@
+.purchaseForm__ticketInputContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  .mantine-NumberInput-root {
+    width: 40px;
+    height: 35px;
+    margin-top: 5px;
+  }
+
+  .mantine-NumberInput-input {
+    padding: 0 0 0 5px;
+  }
+
+  .mantine-NumberInput-rightSection {
+    width: 17px;
+    padding: 0;
+  }
+
+  .mantine-NumberInput-control {
+    width: 16px;
+  }
+}

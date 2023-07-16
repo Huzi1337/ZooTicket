@@ -16,4 +16,14 @@
     text-align: center;
     margin-bottom: 10px;
   }
+
+  h6 {
+    color: colors.$mediumGray;
+    margin-right: auto;
+  }
+}
+
+.card.wide {
+  width: 600px;
+  padding: 30px 60px 40px;
 }

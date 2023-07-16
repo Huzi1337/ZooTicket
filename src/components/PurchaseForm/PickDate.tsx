@@ -22,14 +22,4 @@ export const PickDate = () => {
   );
 };
 
-export const PickTicketType = () => {
-  return (
-    <>
-      <h6>9 June 2023</h6>
-    </>
-  );
-};
-
-export const FillPaymentInfo = () => {
-  return <div></div>;
-};
+export default PickDate;

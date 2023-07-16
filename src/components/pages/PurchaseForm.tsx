@@ -2,24 +2,32 @@ import { Stepper } from "@mantine/core";
 import SectionTitle from "../SectionTitle";
 import { useState } from "react";
 
-import {
-  FillPaymentInfo,
-  PickDate,
-  PickTicketType,
-} from "../PurchaseForm/FormSteps";
+import FillPaymentInfo from "../PurchaseForm/FillPaymentInfo";
+import PickTicketType from "../PurchaseForm/PickTicketType";
+import PickDate from "../PurchaseForm/PickDate";
 
 import "./PurchaseForm.scss";
 
 import FormStepShell from "../PurchaseForm/FormStepShell";
+import { PriceData } from "../../assets/types";
 
-const STEPS = [
-  ["TICKET", <PickDate></PickDate>],
-  ["FILL INFO", <PickTicketType></PickTicketType>],
-  ["PAYMENT", <FillPaymentInfo></FillPaymentInfo>],
-];
+type Props = {
+  data: PriceData;
+};
 
-const PurchaseForm = () => {
+const PurchaseForm = ({ data }: Props) => {
   const [active, setActive] = useState(0);
+
+  const STEPS = [
+    ["TICKET", <PickDate></PickDate>],
+    [
+      "FILL INFO",
+      <PickTicketType
+        items={Object.values(data).sort((a, b) => a.price - b.price)}
+      ></PickTicketType>,
+    ],
+    ["PAYMENT", <FillPaymentInfo></FillPaymentInfo>],
+  ];
   const nextStep = () =>
     setActive((current) => (current < 3 ? current + 1 : current));
   const prevStep = () =>
@@ -32,14 +40,18 @@ const PurchaseForm = () => {
       <Stepper active={active} onStepClick={setActive} breakpoint="sm">
         {STEPS.map((step, key) => (
           <Stepper.Step label={step[0]} key={key}>
-            <FormStepShell nextStep={nextStep} prevStep={prevStep}>
+            <FormStepShell step={key} nextStep={nextStep} prevStep={prevStep}>
               {step[1]}
             </FormStepShell>
           </Stepper.Step>
         ))}
 
         <Stepper.Completed>
-          <FormStepShell nextStep={nextStep} prevStep={prevStep}>
+          <FormStepShell
+            step={STEPS.length - 1}
+            nextStep={nextStep}
+            prevStep={prevStep}
+          >
             Complete!
           </FormStepShell>
         </Stepper.Completed>
