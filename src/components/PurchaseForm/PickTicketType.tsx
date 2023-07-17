@@ -1,26 +1,40 @@
-import { ItemData } from "../../assets/types";
+import { ITicketPurchaseFormData, ItemData } from "../../assets/types";
 import ListItem from "../ListItem";
 import { NumberInput } from "@mantine/core";
 
 import "./PickTicketType.scss";
+import { UseFormReturnType } from "@mantine/form";
+import dayjs from "dayjs";
 
 type PickTicketProps = {
-  items: ItemData[];
+  items: [string, ItemData][];
+  form: UseFormReturnType<ITicketPurchaseFormData>;
 };
 
-const PickTicketType = ({ items }: PickTicketProps) => {
+const PickTicketType = ({
+  items,
+  form,
+  form: {
+    values: { date },
+  },
+}: PickTicketProps) => {
   return (
     <>
-      <h6>9 June 2023</h6>
+      <h6>{dayjs(date).format("D MMMM YYYY")}</h6>
       {items.map((ticket, key) => (
         <div key={key} className="purchaseForm__ticketInputContainer">
           <ListItem
-            item={ticket.type}
-            price={ticket.price}
+            item={ticket[1].type}
+            price={ticket[1].price}
             isDark={key % 2 === 0}
             key={key}
           ></ListItem>
-          <NumberInput min={0} max={9}></NumberInput>
+          <NumberInput
+            {...form.getInputProps(`tickets.${ticket[0]}`)}
+            placeholder="0"
+            min={0}
+            max={9}
+          ></NumberInput>
         </div>
       ))}
     </>

@@ -1,10 +1,69 @@
+@use "../../assets/colors";
+@use "../../assets/fonts";
+
 .paymentInfo__ticketSummary {
   display: flex;
   width: 100%;
   justify-content: space-between;
+  margin-bottom: 10px;
 }
 
 .paymentInfo__textInput {
   border: 0;
   border-bottom: 1px solid black;
+}
+
+.paymentInfo__bold {
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.paymentInfo__bold.title {
+  margin-top: 12px;
+}
+
+.card {
+  .mantine-TextInput-input {
+    border: 0;
+    border-bottom: 1px solid colors.$mediumGray;
+    border-radius: 0;
+    padding: 0;
+    font-size: fonts.$h4;
+    font-family: Source Sans Pro;
+  }
+  .mantine-TextInput-input:focus {
+    border-color: colors.$green;
+  }
+
+  .mantine-TextInput-root {
+    width: 225px;
+    margin-bottom: 20px;
+  }
+
+  .mantine-TextInput-label {
+    color: colors.$mediumGray;
+    font-size: fonts.$h6;
+    font-weight: 400;
+    margin: 0;
+    font-family: Source Sans Pro;
+  }
+
+  .paymentInfo__textInputGroup {
+    .mantine-TextInput-root {
+      width: 70px;
+    }
+  }
+}
+
+.paymentInfo__radioGroup {
+  margin-bottom: 20px;
+  .mantine-Radio-label {
+    font-family: Source Sans Pro;
+    font-size: fonts.$h4;
+    margin-right: 30px;
+  }
+  .mantine-Radio-radio:checked {
+    background-color: colors.$green;
+    border-color: colors.$green;
+  }
 }

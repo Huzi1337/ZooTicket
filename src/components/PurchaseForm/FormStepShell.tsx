@@ -8,41 +8,42 @@ type Props = {
   nextStep: () => void;
   children: React.ReactNode;
   step: number;
+  currentStep: number;
+  numberOfSteps: number;
 };
 
-const FormStepShell = ({ prevStep, nextStep, children, step }: Props) => {
+const FormStepShell = ({
+  prevStep,
+  nextStep,
+  children,
+  step,
+  currentStep,
+  numberOfSteps,
+}: Props) => {
   return (
     <Card wide={step > 0}>
       {children}
 
       <div className="formStepShell__buttonContainer">
+        {currentStep != 0 && currentStep != numberOfSteps && (
+          <Button uppercase variant="default" onClick={prevStep}>
+            Back
+          </Button>
+        )}
         <Button
-          styles={() => ({
-            root: {
-              boxShadow: "0px 0px 12px 0px rgba(49, 49, 49, 0.30)",
-              borderRadius: "16px",
-              padding: "10px 38px",
-              marginTop: "auto",
-            },
-          })}
-          variant="default"
-          onClick={prevStep}
-        >
-          Back
-        </Button>
-        <Button
+          uppercase
           styles={() => ({
             root: {
               backgroundColor: "#179e76",
-              boxShadow: "0px 0px 12px 0px rgba(49, 49, 49, 0.30)",
-              borderRadius: "16px",
-              padding: "10px 38px",
-              marginTop: "auto",
             },
           })}
           onClick={nextStep}
         >
-          Next step
+          {currentStep < numberOfSteps - 1
+            ? "Next Step"
+            : currentStep < numberOfSteps
+            ? "Purchase"
+            : "Back to Homepage"}
         </Button>
       </div>
     </Card>

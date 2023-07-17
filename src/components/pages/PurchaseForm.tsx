@@ -1,6 +1,7 @@
 import { Stepper } from "@mantine/core";
 import SectionTitle from "../SectionTitle";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import FillPaymentInfo from "../PurchaseForm/FillPaymentInfo";
 import PickTicketType from "../PurchaseForm/PickTicketType";
@@ -9,7 +10,9 @@ import PickDate from "../PurchaseForm/PickDate";
 import "./PurchaseForm.scss";
 
 import FormStepShell from "../PurchaseForm/FormStepShell";
-import { PriceData } from "../../assets/types";
+import { ITicketPurchaseFormData, PriceData } from "../../assets/types";
+import { useForm } from "@mantine/form";
+import PurchaseComplete from "../PurchaseForm/PurchaseComplete";
 
 type Props = {
   data: PriceData;
@@ -17,21 +20,89 @@ type Props = {
 
 const PurchaseForm = ({ data }: Props) => {
   const [active, setActive] = useState(0);
+  const navigate = useNavigate();
+
+  const goBackHome = () => {
+    navigate("/");
+  };
+
+  const formSubmitHandler = () => {
+    console.log(form.values);
+  };
+
+  const form = useForm<ITicketPurchaseFormData>({
+    initialValues: {
+      date: new Date(),
+      tickets: {
+        kid3YO: 0,
+        child316YO: 0,
+        concessions: 0,
+        students: 0,
+        adult: 0,
+        FPA: 0,
+        FPB: 0,
+        FPC: 0,
+        FPD: 0,
+      },
+      cardProvider: "",
+      name: "",
+      cardNumber: "",
+      validThru: "",
+      cvv: "",
+    },
+    validate: {
+      cardNumber: (value) =>
+        value.length < 19 ? "Name must have at least 2 letters" : null,
+      tickets: (value) =>
+        Object.values(value).reduce((sum, currentValue) => sum + currentValue) >
+        0
+          ? null
+          : "You must select at least 1 ticket.",
+    },
+  });
+
+  const nextStep = () => {
+    console.log(form.values);
+    let isValid = true;
+    switch (active) {
+      case 0:
+        isValid = !form.validateField("date").hasError;
+        break;
+      case 1:
+        isValid = !form.validateField("tickets").hasError;
+        break;
+      case 2:
+        isValid = !form.validate().hasErrors;
+        break;
+    }
+
+    if (isValid)
+      setActive((current) => {
+        if (current + 1 === STEPS.length) formSubmitHandler();
+        return current + 1;
+      });
+  };
+
+  const prevStep = () =>
+    setActive((current) => (current > 0 ? current - 1 : current));
 
   const STEPS = [
-    ["TICKET", <PickDate></PickDate>],
+    ["TICKET", <PickDate form={form}></PickDate>],
     [
       "FILL INFO",
       <PickTicketType
-        items={Object.values(data).sort((a, b) => a.price - b.price)}
+        form={form}
+        items={Object.entries(data).sort((a, b) => a[1].price - b[1].price)}
       ></PickTicketType>,
     ],
-    ["PAYMENT", <FillPaymentInfo></FillPaymentInfo>],
+    [
+      "PAYMENT",
+      <FillPaymentInfo
+        data={Object.values(data).sort((a, b) => a.price - b.price)}
+        form={form}
+      ></FillPaymentInfo>,
+    ],
   ];
-  const nextStep = () =>
-    setActive((current) => (current < 3 ? current + 1 : current));
-  const prevStep = () =>
-    setActive((current) => (current > 0 ? current - 1 : current));
 
   return (
     <div className="purchaseForm__container">
@@ -40,7 +111,13 @@ const PurchaseForm = ({ data }: Props) => {
       <Stepper active={active} onStepClick={setActive} breakpoint="sm">
         {STEPS.map((step, key) => (
           <Stepper.Step label={step[0]} key={key}>
-            <FormStepShell step={key} nextStep={nextStep} prevStep={prevStep}>
+            <FormStepShell
+              currentStep={active}
+              numberOfSteps={STEPS.length}
+              step={key}
+              nextStep={nextStep}
+              prevStep={prevStep}
+            >
               {step[1]}
             </FormStepShell>
           </Stepper.Step>
@@ -48,11 +125,13 @@ const PurchaseForm = ({ data }: Props) => {
 
         <Stepper.Completed>
           <FormStepShell
+            numberOfSteps={STEPS.length}
+            currentStep={active}
             step={STEPS.length - 1}
-            nextStep={nextStep}
+            nextStep={goBackHome}
             prevStep={prevStep}
           >
-            Complete!
+            <PurchaseComplete />
           </FormStepShell>
         </Stepper.Completed>
       </Stepper>

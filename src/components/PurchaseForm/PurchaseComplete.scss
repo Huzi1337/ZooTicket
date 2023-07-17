@@ -1,0 +1,11 @@
+.purchaseComplete__container {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+
+  img {
+    align-self: center;
+    width: 64px;
+    margin: 25px 0 30px;
+  }
+}

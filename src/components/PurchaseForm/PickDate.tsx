@@ -1,12 +1,16 @@
 import { DatePicker } from "@mantine/dates";
-import { useState } from "react";
+import { UseFormReturnType } from "@mantine/form";
 
-export const PickDate = () => {
-  const [value, setValue] = useState<Date | null>(null);
+import { ITicketPurchaseFormData } from "../../assets/types";
+
+type Props = {
+  form: UseFormReturnType<ITicketPurchaseFormData>;
+};
+
+export const PickDate = ({ form }: Props) => {
   return (
     <DatePicker
-      value={value}
-      onChange={setValue}
+      {...form.getInputProps("date")}
       defaultDate={new Date()}
       minDate={new Date()}
       size="xl"

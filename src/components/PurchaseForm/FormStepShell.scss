@@ -1,6 +1,16 @@
+@use "../../assets/fonts";
+
 .formStepShell__buttonContainer {
   margin-top: auto;
   display: flex;
   gap: 20px;
   align-self: center;
+
+  .mantine-Button-root {
+    font-size: fonts.$h4;
+    border-radius: 16px;
+    padding: 8px 38px;
+    box-shadow: 0px 0px 12px 0px rgba(49, 49, 49, 0.3);
+    margin-top: auto;
+  }
 }
