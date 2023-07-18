@@ -2,7 +2,7 @@
 
 .purchaseForm__container {
   width: 100%;
-  height: 800px;
+
   padding: 19px 3%;
   display: flex;
   flex-direction: column;
@@ -11,4 +11,26 @@
   background-image: url(/assets/ticketPurchase/bg.png);
   background-repeat: no-repeat;
   background-size: cover;
+
+  .mantine-Stepper-separatorActive,
+  .mantine-Stepper-stepIcon,
+  .mantine-Stepper-stepCompletedIcon {
+    background-color: colors.$green;
+  }
+  .mantine-Stepper-stepIcon {
+    border-color: colors.$green;
+    background-color: white;
+  }
+  .mantine-Stepper-stepCompletedIcon {
+    border-radius: 45px;
+  }
+  .mantine-Stepper-root {
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .purchaseForm__container {
+    padding: 19px 1%;
+  }
 }

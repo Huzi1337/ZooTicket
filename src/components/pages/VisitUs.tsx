@@ -19,7 +19,10 @@ type Props = {
 const VisitUs = ({ data: { tickets, membershipsY, content } }: Props) => {
   const navigate = useNavigate();
 
-  const ticketClickHandler = () => navigate("/ticket");
+  const ticketClickHandler = () => {
+    navigate("/ticket");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <>

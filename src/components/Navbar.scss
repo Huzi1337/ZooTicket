@@ -16,6 +16,7 @@
   img {
     height: 60px;
     margin: 0 90px 0 10px;
+    cursor: pointer;
   }
 }
 
@@ -67,7 +68,7 @@ nav.sections {
   display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 930px) {
   .navbar {
     display: none;
   }
@@ -75,6 +76,7 @@ nav.sections {
     display: flex;
 
     .navbar__menuButton {
+      border: 0;
       margin-left: auto;
       margin-right: 10px;
       width: 24px;
@@ -91,7 +93,7 @@ nav.sections {
       border: 1px solid gray;
       gap: 5px;
       right: 0;
-      top: 60px;
+      top: 80px;
       padding: 10px;
       background-color: white;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);

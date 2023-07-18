@@ -35,6 +35,7 @@ const FormStepShell = ({
           styles={() => ({
             root: {
               backgroundColor: "#179e76",
+              "&:hover": { backgroundColor: "#19b385" },
             },
           })}
           onClick={nextStep}

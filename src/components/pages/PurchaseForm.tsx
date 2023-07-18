@@ -24,6 +24,7 @@ const PurchaseForm = ({ data }: Props) => {
 
   const goBackHome = () => {
     navigate("/");
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const formSubmitHandler = () => {
@@ -52,7 +53,15 @@ const PurchaseForm = ({ data }: Props) => {
     },
     validate: {
       cardNumber: (value) =>
-        value.length < 19 ? "Name must have at least 2 letters" : null,
+        value.length < 19 ? "Provide a valid credit card number." : null,
+      cardProvider: (value) =>
+        value.length > 0 ? null : "Select a card provider.",
+      name: (value) =>
+        value.trim().length > 2
+          ? null
+          : "Name must consist of at least 2 characters.",
+      validThru: (value) => (value.length != 5 ? "Invalid value." : null),
+      cvv: (value) => (value.length != 3 ? "Invalid value." : null),
       tickets: (value) =>
         Object.values(value).reduce((sum, currentValue) => sum + currentValue) >
         0
@@ -108,9 +117,18 @@ const PurchaseForm = ({ data }: Props) => {
     <div className="purchaseForm__container">
       <SectionTitle title="Buy entrance ticket to the ZOO"></SectionTitle>
 
-      <Stepper active={active} onStepClick={setActive} breakpoint="sm">
+      <Stepper
+        active={active}
+        onStepClick={setActive}
+        breakpoint="sm"
+        allowNextStepsSelect={false}
+      >
         {STEPS.map((step, key) => (
-          <Stepper.Step label={step[0]} key={key}>
+          <Stepper.Step
+            allowStepSelect={active != STEPS.length}
+            label={step[0]}
+            key={key}
+          >
             <FormStepShell
               currentStep={active}
               numberOfSteps={STEPS.length}
@@ -131,7 +149,10 @@ const PurchaseForm = ({ data }: Props) => {
             nextStep={goBackHome}
             prevStep={prevStep}
           >
-            <PurchaseComplete />
+            <PurchaseComplete
+              data={Object.values(data).sort((a, b) => a.price - b.price)}
+              form={form}
+            />
           </FormStepShell>
         </Stepper.Completed>
       </Stepper>

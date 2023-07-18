@@ -85,24 +85,26 @@ const FillPaymentInfo = ({
       <h6>{dayjs(date).format("D MMMM YYYY")}</h6>
       <h4 className="paymentInfo__bold title">Payment Total</h4>
       <div className="paymentInfo__ticketSummary">
-        <h4>
+        <div>
           {Object.values(tickets).map((numberOfTickets, key) =>
-            numberOfTickets > 0
-              ? numberOfTickets +
-                " " +
-                data[key].type +
-                `(${data[key].price}PLN)`
-              : null
+            numberOfTickets > 0 ? (
+              <h4>
+                {numberOfTickets +
+                  "x " +
+                  data[key].type +
+                  `(${data[key].price}PLN)`}{" "}
+              </h4>
+            ) : null
           )}
-        </h4>{" "}
-        <h4 className="paymentInfo__bold">{totalCost + "PLN"}</h4>
+        </div>{" "}
+        <h4 className="paymentInfo__cost">{totalCost + "PLN"}</h4>
       </div>
       <h4 className="paymentInfo__bold">Card Type</h4>
       <Radio.Group
         {...form.getInputProps("cardProvider")}
         className="paymentInfo__radioGroup"
       >
-        <Group mt="xs">
+        <Group className="paymentInfo__radioGroup__inputs" mt="xs">
           <Radio value="visa" label="VISA" />
           <Radio value="mc" label="MasterCard" />
           <Radio value="btc" label="Bitcoin" />

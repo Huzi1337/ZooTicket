@@ -38,7 +38,7 @@ function Navbar() {
     };
 
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
+      setIsMobile(window.innerWidth <= 930);
       console.log("Handle resize.");
     };
     console.log(IsMobile);

@@ -8,6 +8,10 @@
   margin-top: auto;
 }
 
+.ticketOption__button.mantine-Button-root:hover {
+  background-color: colors.$lightGreen;
+}
+
 @media (max-width: 490px) {
   .ticketOption__button.mantine-Button-root {
     margin-top: 20px;

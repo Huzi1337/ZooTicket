@@ -14,3 +14,12 @@
     margin-top: auto;
   }
 }
+
+@media (max-width: 600px) {
+  .formStepShell__buttonContainer {
+    .mantine-Button-root {
+      font-size: fonts.$h5;
+      padding: 8px 16px;
+    }
+  }
+}

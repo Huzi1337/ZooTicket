@@ -3,9 +3,18 @@
   flex-direction: column;
   align-self: center;
 
+  h6 {
+    margin-top: 8px;
+  }
+
   img {
     align-self: center;
     width: 64px;
     margin: 25px 0 30px;
+  }
+  .purchaseComplete__totalCost {
+    margin-top: 8px;
+    display: flex;
+    gap: 30px;
   }
 }

@@ -14,8 +14,16 @@
 }
 
 .paymentInfo__bold {
-  font-weight: 600;
   margin-bottom: 12px;
+}
+
+.paymentInfo__bold,
+.paymentInfo__cost {
+  font-weight: 600;
+}
+
+.paymentInfo__cost {
+  align-self: flex-start;
 }
 
 .paymentInfo__bold.title {
@@ -65,5 +73,14 @@
   .mantine-Radio-radio:checked {
     background-color: colors.$green;
     border-color: colors.$green;
+  }
+}
+
+@media (max-width: 600px) {
+  .paymentInfo__radioGroup {
+    .paymentInfo__radioGroup__inputs {
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
 }

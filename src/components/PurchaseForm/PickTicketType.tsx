@@ -37,6 +37,11 @@ const PickTicketType = ({
           ></NumberInput>
         </div>
       ))}
+      {form.errors.tickets && (
+        <h5 className="purchaseForm__ticketInputContainer__error">
+          {form.errors.tickets}
+        </h5>
+      )}
     </>
   );
 };
