@@ -11,11 +11,18 @@ interface Props {
   items: ItemData[];
   buttonText: string;
   onClick: () => void;
+  animation?: "slideRight" | "slideLeft";
 }
 
-const TicketOption = ({ title, items, buttonText, onClick }: Props) => {
+const TicketOption = ({
+  title,
+  items,
+  buttonText,
+  onClick,
+  animation,
+}: Props) => {
   return (
-    <Card>
+    <Card animation={animation}>
       <h2>{title}</h2>
       {items.map((item, key) => {
         return (

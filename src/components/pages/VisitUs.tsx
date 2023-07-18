@@ -4,6 +4,8 @@ import TicketOption from "../TicketOption";
 
 import { IVisitUsData } from "../../assets/types";
 
+import { useInView } from "react-intersection-observer";
+
 import "./VisitUs.scss";
 import Grid from "../Grid";
 
@@ -18,6 +20,7 @@ type Props = {
 
 const VisitUs = ({ data: { tickets, membershipsY, content } }: Props) => {
   const navigate = useNavigate();
+  const { ref, inView } = useInView();
 
   const ticketClickHandler = () => {
     navigate("/ticket");
@@ -27,30 +30,39 @@ const VisitUs = ({ data: { tickets, membershipsY, content } }: Props) => {
   return (
     <>
       <div className="visitUs__headScreen">
-        <h1>VISIT US!</h1>
-        <h4>
+        <h1 className="slide-in-header">VISIT US!</h1>
+        <h4 className="slide-in-header">
           We offer two exciting variations of tickets to make your visit a
           memorable experience!{" "}
         </h4>
 
-        <h3>General Entry: a single-day adventure</h3>
-        <h3> Annual Pass: All year round</h3>
+        <h3 className="slide-in-header">
+          General Entry: a single-day adventure
+        </h3>
+        <h3 className="slide-in-header"> Annual Pass: All year round</h3>
       </div>
       <div className="visitUs__ticketOptions">
         <TicketOption
+          animation="slideRight"
           title="Ticket Prices"
           items={Object.values(tickets).sort((a, b) => a.price - b.price)}
           buttonText="BUY A TICKET"
           onClick={ticketClickHandler}
         ></TicketOption>
         <TicketOption
+          animation="slideLeft"
           title="Annual Membership Prices"
           items={Object.values(membershipsY).sort((a, b) => a.price - b.price)}
           buttonText="BUY A MEMBERSHIP"
           onClick={() => {}}
         ></TicketOption>
       </div>
-      <div className="visitUs__zooMap">
+      <div
+        ref={ref}
+        className={`visitUs__zooMap ${
+          inView ? "animation__fadeShow" : "animation__fadeHidden"
+        }`}
+      >
         <h2>Interactive Zoo Map</h2>
         <img src="/assets/visitUs/map.png"></img>
         <h4>

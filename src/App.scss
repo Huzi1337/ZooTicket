@@ -65,3 +65,34 @@ h6 {
     text-align: center;
   }
 }
+
+.animation__fadeShow,
+.animation__slideShow {
+  opacity: 1;
+  transition: all 1s;
+}
+
+.animation__fadeHidden,
+.animation__slideRightHidden,
+.animation__slideLeftHidden {
+  opacity: 0;
+  transition: all 1s;
+}
+
+.animation__slideShow {
+  transform: translateX(0);
+  filter: blur(0);
+}
+
+.animation__slideRightHidden,
+.animation__slideLeftHidden {
+  filter: blur(5px);
+}
+
+.animation__slideRightHidden {
+  transform: translateX(-100%);
+}
+
+.animation__slideLeftHidden {
+  transform: translateX(100%);
+}
