@@ -79,11 +79,11 @@ nav.sections {
       margin-right: 10px;
       width: 24px;
       height: 24px;
-      background-image: url(/icons/hamburger_base.svg);
+      background-image: url(/assets/hamburger_base.svg);
       background-color: transparent;
     }
     .navbar__menuButton.active {
-      background-image: url(/icons/hamburger_pressed.svg);
+      background-image: url(/assets/hamburger_pressed.svg);
     }
     .navbar__dropDown {
       position: fixed;

@@ -4,6 +4,8 @@ import { Button } from "@mantine/core";
 
 import { ItemData } from "../assets/types";
 
+import "./TicketOption.scss";
+
 interface Props {
   title: string;
   items: ItemData[];
@@ -25,18 +27,7 @@ const TicketOption = ({ title, items, buttonText, onClick }: Props) => {
           ></ListItem>
         );
       })}
-      <Button
-        styles={() => ({
-          root: {
-            backgroundColor: "#179e76",
-            boxShadow: "0px 0px 12px 0px rgba(49, 49, 49, 0.30)",
-            borderRadius: "16px",
-            padding: "10px 38px",
-            marginTop: "auto",
-          },
-        })}
-        onClick={onClick}
-      >
+      <Button className="ticketOption__button" onClick={onClick}>
         {buttonText}
       </Button>
     </Card>

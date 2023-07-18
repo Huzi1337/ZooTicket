@@ -1,4 +1,5 @@
 @use "../../assets/colors";
+@use "../../assets/fonts";
 
 .visitUs__headScreen {
   width: 100%;
@@ -32,6 +33,7 @@
   width: 100%;
   padding: 60px 6%;
   gap: 40px;
+  flex-wrap: wrap;
 }
 
 .visitUs__zooMap {
@@ -47,5 +49,27 @@
   }
   h4 {
     padding: 0 11.5%;
+  }
+}
+
+@media (max-width: 1060px) {
+  .visitUs__zooMap {
+    img {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 690px) {
+  .visitUs__headScreen {
+    h3 {
+      font-size: fonts.$h4;
+    }
+  }
+}
+
+@media (max-width: 490px) {
+  .visitUs__ticketOptions {
+    padding: 30px 1%;
   }
 }

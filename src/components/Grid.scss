@@ -14,3 +14,30 @@
     margin-top: 24px;
   }
 }
+
+@media (max-width: 1100px) {
+  .grid__container {
+    .grid__itemsContainer {
+      grid-template-columns: repeat(2, 320px);
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  .grid__container {
+    .grid__itemsContainer {
+      grid-template-columns: 320px;
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .grid__container {
+    .grid__itemsContainer {
+      grid-template-columns: 100%;
+      img {
+        width: 100%;
+      }
+    }
+  }
+}

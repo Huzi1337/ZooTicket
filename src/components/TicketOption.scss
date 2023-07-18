@@ -1,0 +1,15 @@
+@use "../assets/colors";
+
+.ticketOption__button.mantine-Button-root {
+  background-color: colors.$green;
+  box-shadow: 0px 0px 12px 0px rgba(49, 49, 49, 0.3);
+  border-radius: 16px;
+  padding: 10px 38px;
+  margin-top: auto;
+}
+
+@media (max-width: 490px) {
+  .ticketOption__button.mantine-Button-root {
+    margin-top: 20px;
+  }
+}

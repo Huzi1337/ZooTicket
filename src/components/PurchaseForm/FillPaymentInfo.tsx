@@ -51,7 +51,7 @@ const FillPaymentInfo = ({
   };
 
   const formatCardNumber = (value: string) => {
-    const sanitizedValue = value.replace(/\s/g, "");
+    const sanitizedValue = value.replace(/[^\d]/g, "");
     const groups = sanitizedValue.match(/.{1,4}/g);
     const formattedValue = groups ? groups.join(" ") : sanitizedValue;
     return formattedValue;
@@ -95,7 +95,7 @@ const FillPaymentInfo = ({
               : null
           )}
         </h4>{" "}
-        <h4 className="paymentInfo__bold">{totalCost + " PLN"}</h4>
+        <h4 className="paymentInfo__bold">{totalCost + "PLN"}</h4>
       </div>
       <h4 className="paymentInfo__bold">Card Type</h4>
       <Radio.Group

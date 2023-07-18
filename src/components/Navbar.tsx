@@ -72,7 +72,7 @@ function Navbar() {
     </header>
   ) : (
     <header className={"navbar_mobile"}>
-      <img src="/logo.svg"></img>
+      <img src="/assets/logo.svg"></img>
       <button
         className={
           menuOpen ? "navbar__menuButton active" : "navbar__menuButton"

@@ -1,9 +1,11 @@
+@use "./assets/fonts";
+
 h1 {
   color: #000;
 
   /* Header 1 */
   font-family: Montserrat;
-  font-size: 96px;
+  font-size: fonts.$h1;
   font-style: normal;
   font-weight: 800;
   line-height: normal;
@@ -15,7 +17,7 @@ h2 {
 
   /* Header 2 */
   font-family: Montserrat;
-  font-size: 48px;
+  font-size: fonts.$h2;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
@@ -38,18 +40,28 @@ h6 {
 }
 
 h3 {
-  font-size: 36px;
+  font-size: fonts.$h3;
 }
 
 h4 {
-  font-size: 20px;
+  font-size: fonts.$h4;
 }
 
 h5 {
-  font-size: 16px;
+  font-size: fonts.$h5;
   font-weight: 500;
 }
 
 h6 {
-  font-size: 14px;
+  font-size: fonts.$h6;
+}
+
+@media (max-width: 870px) {
+  h1 {
+    font-size: fonts.$h2;
+  }
+  h2 {
+    font-size: fonts.$h3;
+    text-align: center;
+  }
 }

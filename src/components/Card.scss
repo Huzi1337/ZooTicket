@@ -1,4 +1,5 @@
 @use "../assets/colors";
+@use "../assets/fonts";
 
 .card {
   position: relative;
@@ -27,4 +28,20 @@
   width: 600px;
   padding: 30px 60px 40px;
   align-items: flex-start;
+}
+
+@media (max-width: 490px) {
+  .card {
+    height: auto;
+    width: 100%;
+    h2 {
+      font-size: fonts.$h3;
+    }
+    h4 {
+      font-size: fonts.$h5;
+    }
+    .price {
+      min-width: 60px;
+    }
+  }
 }

@@ -12,3 +12,9 @@
 .listItem__container.dark {
   background-color: colors.$fadingLightGray;
 }
+
+@media (max-width: 490px) {
+  .listItem__container {
+    gap: 10px;
+  }
+}
