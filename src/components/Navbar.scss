@@ -1,5 +1,9 @@
 @use "../assets/colors";
 
+body {
+  overflow-x: hidden;
+}
+
 .navbar,
 .navbar_mobile {
   position: sticky;
@@ -12,7 +16,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   color: colors.$darkGray;
   transition: transform 0.2s ease-in-out;
-
+  font-family: "Source Sans 3";
   img {
     height: 60px;
     margin: 0 90px 0 10px;
@@ -52,7 +56,7 @@ nav.sections {
   flex: 2;
   justify-content: space-between;
   max-width: 800px;
-  font-family: Source Sans Pro;
+
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
