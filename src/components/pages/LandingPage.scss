@@ -1,0 +1,245 @@
+@use "../../assets/colors";
+@use "../../assets/fonts";
+
+.landingPage__header__container {
+  width: 100%;
+
+  height: 600px;
+  display: flex;
+  position: relative;
+  align-items: flex-end;
+  justify-content: center;
+
+  background: radial-gradient(
+    103.28% 50.67% at 29.55% 45%,
+    #cabbe9 0.83%,
+    #b39fdc 36.29%,
+    #907abd 80.56%
+  );
+
+  .bear {
+    min-width: 800px;
+    height: 600px;
+    background-image: url(/assets/landingPage/bear.png);
+    background-size: cover;
+    background-position: 25%;
+  }
+}
+
+.landingPage__title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  margin-top: 40px;
+  align-self: center;
+
+  width: 540px;
+
+  h1,
+  h3 {
+    color: colors.$white;
+  }
+
+  h3 {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    .arrowRight {
+      background-image: url(/assets/landingPage/arrowRight.svg);
+      width: 15px;
+      height: 33.933px;
+    }
+  }
+}
+
+.landingPage__title.head {
+  margin-left: -60px;
+}
+
+.landingPage__infoButtonContainer {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 25px 0;
+  .mantine-Button-label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .mantine-Button-root {
+    width: 260px;
+    height: 80px;
+
+    border-radius: 20px;
+    background-color: colors.$white;
+    box-shadow: 0px 0px 12px 0px rgba(49, 49, 49, 0.3);
+  }
+  .mantine-Button-root:last-child {
+    h4 {
+      color: colors.$white;
+    }
+    width: 260px;
+    height: 80px;
+
+    border-radius: 20px;
+
+    background-color: colors.$green;
+    box-shadow: 0px 0px 12px 0px rgba(49, 49, 49, 0.3);
+  }
+}
+
+.landingPage__body,
+.landingPage__aboutUs,
+.landingPage__newsletter {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.landingPage__body {
+  display: flex;
+
+  flex-wrap: wrap;
+  align-items: stretch;
+  .landingPage__section {
+    height: auto;
+    min-height: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .landingPage__section:nth-child(1) {
+    width: 55%;
+    background: var(
+      --green-gradient,
+      radial-gradient(50% 50% at 50% 50%, #51e1b6 29.52%, #179e76 100%)
+    );
+    .eagle {
+      width: 658px;
+      height: 575px;
+
+      background-image: url(/assets/landingPage/eagle.png);
+    }
+  }
+  .landingPage__section:nth-child(2) {
+    width: 45%;
+    background: radial-gradient(50% 50% at 50% 50%, #fde094 0%, #e5ac69 100%);
+    .owl {
+      background-image: url(/assets/landingPage/owl.png);
+      width: 572px;
+      height: 446px;
+    }
+  }
+  .landingPage__section:nth-child(3) {
+    width: 45%;
+    background: var(
+      --green,
+      radial-gradient(
+        52.98% 56.96% at 40% 43.92%,
+        #dbea72 0%,
+        #dae780 0.01%,
+        #b2c23b 100%
+      )
+    );
+    .crab {
+      background-image: url(/assets/landingPage/crab.png);
+      width: 640px;
+      height: 362px;
+    }
+  }
+  .landingPage__section:nth-child(4) {
+    width: 55%;
+    flex-direction: row;
+    background: radial-gradient(
+      49.12% 50.92% at 63.25% 45.19%,
+      #aae1fa 2.18%,
+      #57afd7 100%
+    );
+    .leopard {
+      background-image: url(/assets/landingPage/leopard.png);
+      width: 596px;
+      height: 800px;
+    }
+    .landingPage__title {
+      align-self: flex-end;
+      margin-bottom: 60px;
+      margin-right: -100px;
+    }
+  }
+}
+
+.landingPage__aboutUs {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+
+  min-height: 600px;
+  background-image: url(/assets/landingPage/bird.png);
+
+  .landingPage__title {
+    margin-right: 10%;
+    margin-bottom: 10%;
+  }
+}
+
+.landingPage__newsletter {
+  display: flex;
+  min-height: 460px;
+  justify-content: space-between;
+
+  background: radial-gradient(
+    65.53% 82.04% at 21.15% 49.09%,
+    #6fa6d9 0%,
+    #6fa6d9 32.76%,
+    #2667a3 100%
+  );
+
+  .landingPage__newsletter__info,
+  .landingPage__newsletter__row {
+    display: flex;
+  }
+
+  .landingPage__newsletter__info {
+    align-self: center;
+    flex-direction: column;
+    margin-right: 10%;
+    h2 {
+      color: colors.$white;
+      margin-bottom: 30px;
+    }
+  }
+
+  .landingPage__newsletter__row {
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2.5%;
+    .mantine-Button-root {
+      background-color: colors.$green;
+      box-shadow: 0px 0px 12px 0px rgba(49, 49, 49, 0.3);
+      border-radius: 16px;
+      height: 40px;
+    }
+    .mantine-Button-label {
+      font-size: fonts.$h4;
+    }
+    input {
+      width: 340px;
+    }
+  }
+
+  .lion {
+    width: 578px;
+    height: 460px;
+    background-image: url(/assets/landingPage/lion.png);
+  }
+}
+
+.landingPage__sponsors {
+  background-color: colors.$mediumGray;
+}

@@ -6,7 +6,8 @@
   display: flex;
   flex-direction: column;
   width: 520px;
-  height: 600px;
+  height: auto;
+  min-height: 600px;
   padding: 30px 3% 40px;
   background-color: colors.$white;
   border-radius: 20px;
@@ -34,7 +35,6 @@
 
 @media (max-width: 520px) {
   .card {
-    height: auto;
     width: 100%;
     h2 {
       font-size: fonts.$h3;

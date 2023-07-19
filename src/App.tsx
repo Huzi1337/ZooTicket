@@ -8,6 +8,7 @@ import useFetch from "./hooks/fetch";
 import { API_URL } from "./assets/data";
 import { IVisitUsData } from "./assets/types";
 import { Loader, LoadingOverlay } from "@mantine/core";
+import LandingPage from "./components/pages/LandingPage";
 
 function App() {
   const { isLoading, error, data } = useFetch(API_URL);
@@ -23,31 +24,34 @@ function App() {
 
   const router = createBrowserRouter([
     {
+      path: "/home",
+      element: (
+        <>
+          <Navbar></Navbar>
+          <LandingPage></LandingPage>
+          <Footer></Footer>
+        </>
+      ),
+    },
+    {
       path: "/",
-      children: [
-        {
-          path: "/",
-          element: (
-            <>
-              <Navbar></Navbar>
-              <VisitUs data={data}></VisitUs>
-              <Footer></Footer>
-            </>
-          ),
-        },
-        {
-          path: "/ticket",
-          element: (
-            <>
-              <Navbar></Navbar>
-              <PurchaseForm
-                data={(data as IVisitUsData).tickets}
-              ></PurchaseForm>
-              <Footer></Footer>
-            </>
-          ),
-        },
-      ],
+      element: (
+        <>
+          <Navbar></Navbar>
+          <VisitUs data={data}></VisitUs>
+          <Footer></Footer>
+        </>
+      ),
+    },
+    {
+      path: "/ticket",
+      element: (
+        <>
+          <Navbar></Navbar>
+          <PurchaseForm data={(data as IVisitUsData).tickets}></PurchaseForm>
+          <Footer></Footer>
+        </>
+      ),
     },
   ]);
   return <RouterProvider router={router}></RouterProvider>;

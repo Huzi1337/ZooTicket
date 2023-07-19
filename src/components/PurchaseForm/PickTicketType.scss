@@ -23,6 +23,10 @@
     width: 16px;
   }
 }
+
+.purchaseForm__ticketInputContainer:nth-last-child(2) {
+  margin-bottom: 20px;
+}
 .purchaseForm__ticketInputContainer__error {
   padding: 9px 16px;
   color: #fa5252;

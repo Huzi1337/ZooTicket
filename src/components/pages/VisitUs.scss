@@ -26,7 +26,6 @@
 .visitUs__zooMap {
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .visitUs__ticketOptions {
@@ -41,6 +40,7 @@
   padding: 40px 8.5%;
   display: flex;
   flex-direction: column;
+  align-items: center;
   background-color: colors.$lightGray;
   gap: 20px;
 
@@ -88,7 +88,17 @@
 }
 
 @media (max-width: 690px) {
+  .visitUs__zooMap {
+    h4 {
+      font-size: fonts.$textApp;
+    }
+  }
   .visitUs__headScreen {
+    height: 390px;
+    h4 {
+      font-size: fonts.$h6;
+      margin-bottom: 20px;
+    }
     h3 {
       font-size: fonts.$h4;
     }

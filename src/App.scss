@@ -56,13 +56,19 @@ h6 {
   font-size: fonts.$h6;
 }
 
-@media (max-width: 870px) {
+@media (max-width: 690px) {
   h1 {
-    font-size: fonts.$h2;
+    font-size: fonts.$headerApp;
   }
   h2 {
-    font-size: fonts.$h3;
+    font-size: fonts.$headerApp;
     text-align: center;
+  }
+  h3 {
+    font-size: fonts.$h4;
+  }
+  h4 {
+    font-size: fonts.$h6;
   }
 }
 
@@ -95,4 +101,10 @@ h6 {
 
 .animation__slideLeftHidden {
   transform: translateX(100%);
+}
+
+@media (max-width: 1230px) {
+  .animation__slideLeftHidden {
+    transform: translateX(-100%);
+  }
 }

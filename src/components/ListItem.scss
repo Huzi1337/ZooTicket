@@ -13,6 +13,14 @@
   background-color: colors.$fadingLightGray;
 }
 
+.listItem__container:nth-last-child(2) {
+  margin-bottom: 20px;
+}
+
+.listItem__container:first-child {
+  margin-bottom: 0;
+}
+
 @media (max-width: 490px) {
   .listItem__container {
     gap: 10px;

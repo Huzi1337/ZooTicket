@@ -97,7 +97,9 @@ function Navbar() {
           ))}
           <hr />
 
-          <a href="#">PL/EN</a>
+          <a href="#">
+            <b>PL/EN</b>
+          </a>
         </nav>
       )}
     </header>
