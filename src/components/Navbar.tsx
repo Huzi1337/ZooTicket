@@ -62,12 +62,16 @@ const Navbar = (props: Props) => {
     <header className={visible ? "navbar" : "navbar hide"}>
       <img src="/assets/logo.svg"></img>
       <nav className="sections">
-        {sections.map((section, key) => (
-          <NavLink to={`/${section}`} key={key}>
-            {" "}
-            {transformLabel(labels[key])}
-          </NavLink>
-        ))}
+        {sections.map((section, key) =>
+          key < 2 ? (
+            <NavLink to={`/${section}`} key={key}>
+              {" "}
+              {transformLabel(labels[key])}
+            </NavLink>
+          ) : (
+            <a key={key}>{transformLabel(labels[key])}</a>
+          )
+        )}
       </nav>
 
       <nav className="options">
