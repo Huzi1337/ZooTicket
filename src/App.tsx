@@ -9,6 +9,7 @@ import { API_URL } from "./assets/data";
 import { IVisitUsData } from "./assets/types";
 import { Loader, LoadingOverlay } from "@mantine/core";
 import LandingPage from "./components/pages/LandingPage";
+import Redirect from "./components/Redirect";
 
 function App() {
   const { isLoading, error, data } = useFetch(API_URL);
@@ -23,18 +24,18 @@ function App() {
   if (error) return <h1>An error has occured. {error}</h1>;
 
   const router = createBrowserRouter([
+    { path: "/", element: <Redirect></Redirect> },
     {
       path: "/home",
       element: (
         <>
-          <Navbar></Navbar>
           <LandingPage></LandingPage>
           <Footer></Footer>
         </>
       ),
     },
     {
-      path: "/",
+      path: "/visitUs",
       element: (
         <>
           <Navbar></Navbar>

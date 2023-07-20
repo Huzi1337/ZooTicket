@@ -1,0 +1,21 @@
+.landingPage__aboutUs {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  background-image: url(/assets/landingPage/bird.png);
+
+  min-height: 600px;
+
+  .landingPage__title {
+    margin-right: 10%;
+    margin-bottom: 10%;
+  }
+}
+
+@media (max-width: 1190px) {
+  .landingPage__aboutUs {
+    background-size: cover;
+    background-position: left 30%;
+    min-height: 240px;
+  }
+}

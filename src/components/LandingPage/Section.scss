@@ -1,0 +1,136 @@
+@use "../../assets/colors";
+@use "../../assets/fonts";
+
+.landingPage__section {
+  height: auto;
+  min-height: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.landingPage__section:nth-child(1) {
+  width: 55%;
+  background: var(
+    --green-gradient,
+    radial-gradient(50% 50% at 50% 50%, #51e1b6 29.52%, #179e76 100%)
+  );
+  .eagle {
+    max-width: 658px;
+    max-height: 575px;
+  }
+}
+.landingPage__section:nth-child(2) {
+  width: 45%;
+  background: radial-gradient(50% 50% at 50% 50%, #fde094 0%, #e5ac69 100%);
+  .owl {
+    max-width: 572px;
+    max-height: 446px;
+    margin-right: -40px;
+  }
+}
+.landingPage__section:nth-child(3) {
+  width: 45%;
+  background: var(
+    --green,
+    radial-gradient(
+      52.98% 56.96% at 40% 43.92%,
+      #dbea72 0%,
+      #dae780 0.01%,
+      #b2c23b 100%
+    )
+  );
+  .crab {
+    max-width: 640px;
+    max-height: 362px;
+  }
+}
+.landingPage__section:nth-child(4) {
+  position: relative;
+  width: 55%;
+  flex-direction: row;
+  overflow-x: hidden;
+  background: radial-gradient(
+    49.12% 50.92% at 63.25% 45.19%,
+    #aae1fa 2.18%,
+    #57afd7 100%
+  );
+  .leopard {
+    max-width: 596px;
+    max-height: 800px;
+  }
+  .landingPage__title {
+    position: absolute;
+    align-self: flex-end;
+    left: 20px;
+    margin-bottom: 60px;
+  }
+}
+
+@media (max-width: 1190px) {
+  .landingPage__section {
+    width: 100% !important;
+    padding-top: 20px;
+    min-height: auto;
+  }
+  .landingPage__section:nth-child(1) {
+    flex-direction: row-reverse;
+    .eagle {
+      width: 50%;
+    }
+  }
+  .landingPage__section:nth-child(2) {
+    flex-direction: row;
+    .owl {
+      width: 50%;
+    }
+  }
+  .landingPage__section:nth-child(3) {
+    align-items: center;
+    .crab {
+      width: 50%;
+    }
+  }
+  .landingPage__section:nth-child(4) {
+    justify-content: space-between;
+    padding-left: 20px;
+    .landingPage__title {
+      position: relative;
+      align-self: center;
+      margin-right: 0;
+    }
+    .leopard {
+      width: 30%;
+    }
+  }
+}
+
+@media (max-width: 520px) {
+  .landingPage__section:nth-child(1) {
+    padding-right: 5px;
+  }
+  .landingPage__section:nth-child(4) {
+    .leopard {
+      width: 40%;
+    }
+  }
+}
+
+@media (max-width: 374px) {
+  .landingPage__section:nth-child(2) {
+    .landingPage__title {
+      margin-bottom: 20px;
+    }
+    position: relative;
+    .landingPage__title {
+      position: absolute;
+      width: 70%;
+      left: 0;
+    }
+  }
+  .landingPage__section:nth-child(4) {
+    padding: 0;
+    .landingPage__title {
+      margin-bottom: 0;
+    }
+  }
+}

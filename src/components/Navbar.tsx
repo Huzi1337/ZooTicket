@@ -15,7 +15,11 @@ const sections = [
   "contact",
 ];
 
-function Navbar() {
+type Props = {
+  children?: React.ReactNode;
+};
+
+const Navbar = (props: Props) => {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
   const [IsMobile, setIsMobile] = useState(false);
@@ -73,6 +77,7 @@ function Navbar() {
   ) : (
     <header className={"navbar_mobile"}>
       <img src="/assets/logo.svg"></img>
+      {props.children}
       <button
         className={
           menuOpen ? "navbar__menuButton active" : "navbar__menuButton"
@@ -104,6 +109,6 @@ function Navbar() {
       )}
     </header>
   );
-}
+};
 
 export default Navbar;

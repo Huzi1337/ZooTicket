@@ -1,0 +1,105 @@
+@use "../../assets/colors";
+@use "../../assets/fonts";
+
+.landingPage__sponsors {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: colors.$mediumGray;
+  padding: 70px 0;
+  gap: 26px;
+  .sponsor {
+    background-size: cover;
+  }
+  .apple {
+    width: 60px;
+    height: 66.667px;
+    background-image: url(/assets/landingPage/sponsors/apple.svg);
+  }
+  .britishAirlines {
+    width: 300px;
+    height: 80px;
+    background-image: url(/assets/landingPage/sponsors/britishAirlines.svg);
+  }
+  .man {
+    width: 95px;
+    height: 95px;
+    background-image: url(/assets/landingPage/sponsors/man.svg);
+  }
+  .snapchat {
+    width: 68px;
+    height: 68px;
+    background-image: url(/assets/landingPage/sponsors/snapchat.svg);
+  }
+  .hulu {
+    width: 70px;
+    height: 70px;
+    background-image: url(/assets/landingPage/sponsors/hulu.svg);
+  }
+  .redux {
+    width: 200px;
+    height: 48px;
+    background-image: url(/assets/landingPage/sponsors/redux.svg);
+  }
+}
+
+@media (max-width: 900px) {
+  .landingPage__sponsors {
+    padding: 0;
+    .apple {
+      width: 30px;
+      height: 33.33px;
+    }
+    .britishAirlines {
+      width: 150px;
+      height: 40px;
+    }
+    .man {
+      width: 48px;
+      height: 48px;
+    }
+    .snapchat {
+      width: 34px;
+      height: 34px;
+    }
+    .hulu {
+      width: 35px;
+      height: 35px;
+    }
+    .redux {
+      width: 100px;
+      height: 24px;
+    }
+  }
+}
+
+@media (max-width: 520px) {
+  .landingPage__sponsors {
+    padding: 5px 0;
+    flex-wrap: wrap;
+    .apple {
+      width: 30px;
+      height: 33.33px;
+    }
+    .britishAirlines {
+      width: 150px;
+      height: 40px;
+    }
+    .man {
+      width: 48px;
+      height: 48px;
+    }
+    .snapchat {
+      width: 34px;
+      height: 34px;
+    }
+    .hulu {
+      width: 35px;
+      height: 35px;
+    }
+    .redux {
+      width: 100px;
+      height: 24px;
+    }
+  }
+}

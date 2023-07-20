@@ -9,31 +9,6 @@
   margin: 0 auto;
 }
 
-.landingPage__header__container {
-  width: 100%;
-
-  height: 600px;
-  display: flex;
-  position: relative;
-  align-items: flex-end;
-  justify-content: center;
-
-  background: radial-gradient(
-    103.28% 50.67% at 29.55% 45%,
-    #cabbe9 0.83%,
-    #b39fdc 36.29%,
-    #907abd 80.56%
-  );
-
-  .bear {
-    min-width: 800px;
-    height: 600px;
-    background-image: url(/assets/landingPage/bear.png);
-    background-size: cover;
-    background-position: 25%;
-  }
-}
-
 .landingPage__title {
   display: flex;
   flex-direction: column;
@@ -45,6 +20,7 @@
   h1,
   h3 {
     color: colors.$white;
+    display: inline;
   }
 
   h3 {
@@ -71,7 +47,7 @@
   display: flex;
   justify-content: center;
   gap: 30px;
-  padding: 25px 0;
+  padding: 25px 10px;
   .mantine-Button-label {
     display: flex;
     flex-direction: column;
@@ -79,7 +55,8 @@
   }
 
   .mantine-Button-root {
-    width: 260px;
+    width: 25%;
+    max-width: 260px;
     height: 80px;
 
     border-radius: 20px;
@@ -98,6 +75,9 @@
     background-color: colors.$green;
     box-shadow: 0px 0px 12px 0px rgba(49, 49, 49, 0.3);
   }
+  .mantine-Button-root:last-child:hover {
+    background-color: colors.$lightGreen;
+  }
 }
 
 .landingPage__body {
@@ -105,229 +85,10 @@
 
   flex-wrap: wrap;
   align-items: stretch;
-  .landingPage__section {
-    height: auto;
-    min-height: 800px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-  }
-  .landingPage__section:nth-child(1) {
-    width: 55%;
-    background: var(
-      --green-gradient,
-      radial-gradient(50% 50% at 50% 50%, #51e1b6 29.52%, #179e76 100%)
-    );
-    .eagle {
-      max-width: 658px;
-      max-height: 575px;
-    }
-  }
-  .landingPage__section:nth-child(2) {
-    width: 45%;
-    background: radial-gradient(50% 50% at 50% 50%, #fde094 0%, #e5ac69 100%);
-    .owl {
-      max-width: 572px;
-      max-height: 446px;
-    }
-  }
-  .landingPage__section:nth-child(3) {
-    width: 45%;
-    background: var(
-      --green,
-      radial-gradient(
-        52.98% 56.96% at 40% 43.92%,
-        #dbea72 0%,
-        #dae780 0.01%,
-        #b2c23b 100%
-      )
-    );
-    .crab {
-      max-width: 640px;
-      max-height: 362px;
-    }
-  }
-  .landingPage__section:nth-child(4) {
-    position: relative;
-    width: 55%;
-    flex-direction: row;
-    overflow-x: hidden;
-    background: radial-gradient(
-      49.12% 50.92% at 63.25% 45.19%,
-      #aae1fa 2.18%,
-      #57afd7 100%
-    );
-    .leopard {
-      max-width: 596px;
-      max-height: 800px;
-    }
-    .landingPage__title {
-      position: absolute;
-      align-self: flex-end;
-      left: 20px;
-      margin-bottom: 60px;
-    }
-  }
-}
-
-.landingPage__aboutUs {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  background-image: url(/assets/landingPage/bird.png);
-
-  min-height: 600px;
-
-  .landingPage__title {
-    margin-right: 10%;
-    margin-bottom: 10%;
-  }
-}
-
-.landingPage__newsletter {
-  display: flex;
-  min-height: 460px;
-  justify-content: space-between;
-
-  background: radial-gradient(
-    65.53% 82.04% at 21.15% 49.09%,
-    #6fa6d9 0%,
-    #6fa6d9 32.76%,
-    #2667a3 100%
-  );
-
-  .landingPage__newsletter__info,
-  .landingPage__newsletter__row {
-    display: flex;
-  }
-
-  .landingPage__newsletter__info {
-    align-self: center;
-    flex-direction: column;
-    margin-right: 10%;
-    h2 {
-      color: colors.$white;
-      margin-bottom: 30px;
-    }
-  }
-
-  .landingPage__newsletter__row {
-    justify-content: space-between;
-    gap: 10px;
-    align-items: center;
-    padding: 0 2.5%;
-    .mantine-Button-root {
-      background-color: colors.$green;
-      box-shadow: 0px 0px 12px 0px rgba(49, 49, 49, 0.3);
-      border-radius: 16px;
-      height: 40px;
-    }
-    .mantine-Button-label {
-      font-size: fonts.$h4;
-    }
-    input {
-      width: 340px;
-    }
-  }
-
-  .lion {
-    width: 50%;
-    min-width: 250px;
-    height: 460px;
-    background-image: url(/assets/landingPage/lion.png);
-    background-size: cover;
-    background-position: 100%;
-  }
-}
-
-.landingPage__sponsors {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: colors.$mediumGray;
-  padding: 70px 0;
-  gap: 26px;
-  .sponsor {
-    background-size: cover;
-  }
-  .apple {
-    width: 60px;
-    height: 66.667px;
-    background-image: url(/assets/landingPage/sponsors/apple.svg);
-  }
-  .britishAirlines {
-    width: 300px;
-    height: 80px;
-    background-image: url(/assets/landingPage/sponsors/britishAirlines.svg);
-  }
-  .man {
-    width: 95px;
-    height: 95px;
-    background-image: url(/assets/landingPage/sponsors/man.svg);
-  }
-  .snapchat {
-    width: 68px;
-    height: 68px;
-    background-image: url(/assets/landingPage/sponsors/snapchat.svg);
-  }
-  .hulu {
-    width: 70px;
-    height: 70px;
-    background-image: url(/assets/landingPage/sponsors/hulu.svg);
-  }
-  .redux {
-    width: 200px;
-    height: 48px;
-    background-image: url(/assets/landingPage/sponsors/redux.svg);
-  }
-}
-
-@media (max-width: 1190px) {
-  .landingPage__body {
-    .landingPage__section {
-      width: 100% !important;
-      padding-top: 20px;
-      min-height: auto;
-    }
-    .landingPage__section:nth-child(1) {
-      flex-direction: row-reverse;
-      .eagle {
-        width: 50%;
-      }
-    }
-    .landingPage__section:nth-child(2) {
-      flex-direction: row;
-      .owl {
-        width: 50%;
-      }
-    }
-    .landingPage__section:nth-child(3) {
-      align-items: center;
-      .crab {
-        width: 50%;
-      }
-    }
-    .landingPage__section:nth-child(4) {
-      justify-content: space-between;
-      padding-left: 20px;
-      .landingPage__title {
-        position: relative;
-        align-self: center;
-        margin-right: 0;
-      }
-      .leopard {
-        width: 30%;
-      }
-    }
-  }
-  .landingPage__aboutUs {
-    background-size: cover;
-    background-position: left 30%;
-    min-height: 240px;
-  }
 }
 
 @media (max-width: 1000px) {
+  .landingPage__header__container,
   .landingPage__body,
   .landingPage__aboutUs {
     h1 {
@@ -336,126 +97,35 @@
   }
 }
 
-@media (max-width: 900px) {
-  .landingPage__sponsors {
-    padding: 0;
-    .apple {
-      width: 30px;
-      height: 33.33px;
-    }
-    .britishAirlines {
-      width: 150px;
-      height: 40px;
-    }
-    .man {
-      width: 48px;
-      height: 48px;
-    }
-    .snapchat {
-      width: 34px;
-      height: 34px;
-    }
-    .hulu {
-      width: 35px;
-      height: 35px;
-    }
-    .redux {
-      width: 100px;
-      height: 24px;
-    }
-  }
-}
-
 @media (max-width: 800px) {
-  .landingPage__newsletter {
-    .landingPage__newsletter__info {
-      h2 {
-        text-align: center;
-      }
-    }
-    .landingPage__newsletter__row {
-      flex-direction: column;
-      input {
-        width: 200px;
-      }
-    }
+  .landingPage__infoButtonContainer {
+    gap: 10px;
   }
 }
 
-@media (max-width: 520px) {
-  .landingPage__body {
-    .landingPage__section:nth-child(4) {
-      .leopard {
-        width: 40%;
-      }
-    }
-  }
-  .landingPage__newsletter {
-    justify-content: flex-end;
-    .landingPage__newsletter__info {
-      z-index: 1;
-      h2 {
-        text-align: center;
-        text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000,
-          -1px -1px 0 #000;
-      }
-    }
-    .lion {
-      position: absolute;
-      left: 0;
-    }
-
-    .landingPage__newsletter__row {
-      flex-direction: column;
-      input {
-        width: 200px;
-      }
-    }
-  }
-  .landingPage__sponsors {
-    padding: 5px 0;
-    flex-wrap: wrap;
-    .apple {
-      width: 30px;
-      height: 33.33px;
-    }
-    .britishAirlines {
-      width: 150px;
-      height: 40px;
-    }
-    .man {
-      width: 48px;
-      height: 48px;
-    }
-    .snapchat {
-      width: 34px;
-      height: 34px;
-    }
-    .hulu {
-      width: 35px;
-      height: 35px;
-    }
-    .redux {
-      width: 100px;
-      height: 24px;
-    }
-  }
-}
-
-@media (max-width: 374px) {
-  .landingPage__body {
-    .landingPage__section:nth-child(2) {
-      position: relative;
-      .landingPage__title {
-        position: absolute;
-        width: 70%;
-        left: 0;
-      }
-    }
-    .landingPage__section:nth-child(4) {
+@media (max-width: 768px) {
+  .landingPage__infoButtonContainer {
+    .mantine-Button-root {
       padding: 0;
-      .landingPage__title {
-        margin-bottom: 0;
+      width: 160px;
+    }
+    .mantine-Button-root:last-child {
+      width: 160px;
+      h4 {
+        color: black;
+      }
+      background-color: colors.$white;
+    }
+  }
+}
+
+@media (max-width: 690px) {
+  .landingPage__title {
+    .row {
+      .arrowRight {
+        width: 12px;
+        height: 23.633px;
+        background-size: cover;
       }
     }
   }

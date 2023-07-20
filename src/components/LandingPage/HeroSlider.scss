@@ -1,0 +1,59 @@
+.landingPage__header__container {
+  width: 100%;
+  min-height: 240px;
+  display: flex;
+  position: relative;
+  align-items: flex-end;
+  justify-content: flex-start;
+
+  background: radial-gradient(
+    103.28% 50.67% at 29.55% 45%,
+    #cabbe9 0.83%,
+    #b39fdc 36.29%,
+    #907abd 80.56%
+  );
+
+  .bear {
+    width: 800px;
+  }
+  .landingPage__title {
+    position: absolute;
+    right: 0;
+    width: 50%;
+  }
+}
+
+@media (max-width: 1100px) {
+  .landingPage__header__container {
+    .bear {
+      width: 640px;
+    }
+  }
+}
+
+@media (max-width: 690px) {
+  .landingPage__header__container {
+    .bear {
+      width: 400px;
+    }
+  }
+}
+
+@media (max-width: 520px) {
+  .landingPage__header__container {
+    .bear {
+      width: 320px;
+    }
+  }
+}
+
+@media (max-width: 374px) {
+  .landingPage__header__container {
+    .landingPage__title {
+      right: 20px;
+      width: 60%;
+      text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000,
+        -1px -1px 0 #000;
+    }
+  }
+}

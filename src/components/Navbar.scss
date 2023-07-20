@@ -103,3 +103,28 @@ nav.sections {
     }
   }
 }
+
+@media (max-width: 768px) {
+  .navbar_mobile {
+    img {
+      margin: 0 0 0 10px;
+    }
+    .navbar__menuButton {
+      margin-left: 10px;
+    }
+    .mantine-Button-root {
+      h4 {
+        color: colors.$white;
+      }
+      margin-left: auto;
+
+      border-radius: 20px;
+
+      background-color: colors.$green;
+      box-shadow: 0px 0px 12px 0px rgba(49, 49, 49, 0.3);
+    }
+    .mantine-Button-root:hover {
+      background-color: colors.$lightGreen;
+    }
+  }
+}

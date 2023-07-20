@@ -1,0 +1,102 @@
+@use "../../assets/colors";
+@use "../../assets/fonts";
+
+.landingPage__newsletter {
+  display: flex;
+  min-height: 460px;
+  justify-content: space-between;
+
+  background: radial-gradient(
+    65.53% 82.04% at 21.15% 49.09%,
+    #6fa6d9 0%,
+    #6fa6d9 32.76%,
+    #2667a3 100%
+  );
+
+  .landingPage__newsletter__info,
+  .landingPage__newsletter__row {
+    display: flex;
+  }
+
+  .landingPage__newsletter__info {
+    align-self: center;
+    flex-direction: column;
+    margin-right: 10%;
+    h2 {
+      color: colors.$white;
+      margin-bottom: 30px;
+    }
+  }
+
+  .landingPage__newsletter__row {
+    justify-content: space-between;
+    gap: 10px;
+    align-items: center;
+    padding: 0 2.5%;
+    .mantine-Button-root {
+      background-color: colors.$green;
+      box-shadow: 0px 0px 12px 0px rgba(49, 49, 49, 0.3);
+      border-radius: 16px;
+      height: 40px;
+    }
+    .mantine-Button-label {
+      font-size: fonts.$h4;
+    }
+    input {
+      width: 340px;
+    }
+  }
+
+  .lion {
+    width: 50%;
+    min-width: 250px;
+    height: 460px;
+    background-image: url(/assets/landingPage/lion.png);
+    background-size: cover;
+    background-position: 100%;
+  }
+}
+
+@media (max-width: 800px) {
+  .landingPage__newsletter {
+    .landingPage__newsletter__info {
+      h2 {
+        text-align: center;
+      }
+    }
+    .landingPage__newsletter__row {
+      flex-direction: column;
+      input {
+        width: 200px;
+      }
+    }
+  }
+}
+
+@media (max-width: 520px) {
+  .landingPage__newsletter {
+    justify-content: flex-end;
+    min-height: 240px;
+    position: relative;
+    .landingPage__newsletter__info {
+      z-index: 1;
+      h2 {
+        text-align: center;
+        text-shadow: -1px 1px 0 #000, 1px 1px 0 #000, 1px -1px 0 #000,
+          -1px -1px 0 #000;
+      }
+    }
+    .lion {
+      position: absolute;
+      height: 100%;
+      left: -20%;
+    }
+
+    .landingPage__newsletter__row {
+      flex-direction: column;
+      input {
+        width: 200px;
+      }
+    }
+  }
+}

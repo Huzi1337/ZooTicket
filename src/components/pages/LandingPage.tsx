@@ -1,8 +1,13 @@
-import Slider from "react-slick";
-import "slick-carousel/slick/slick-theme.scss";
-import "slick-carousel/slick/slick.scss";
 import "./LandingPage.scss";
-import { Button, TextInput } from "@mantine/core";
+import { Button } from "@mantine/core";
+import Sponsors from "../LandingPage/Sponsors";
+import Newsletter from "../LandingPage/Newsletter";
+import AboutUs from "../LandingPage/AboutUs";
+import Section from "../LandingPage/Section";
+import HeroSlider from "../LandingPage/HeroSlider";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Navbar from "../Navbar";
 
 const INFO_BUTTONS_CONTENT = [
   { title: "Open Today", subTitle: "8:00am - 7:00pm" },
@@ -18,93 +23,64 @@ const SECTIONS = [
   { title: "MORE?", subTitle: "Other attractions!", img: "leopard" },
 ];
 
-const SPONSORS = [
-  "apple",
-  "britishAirlines",
-  "man",
-  "snapchat",
-  "hulu",
-  "redux",
-];
-
 const LandingPage = () => {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const navigate = useNavigate();
+
+  const buyTicketClickHandler = () => {
+    navigate("/visitUs");
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <>
-      <Slider>
-        <div>
-          <div className="landingPage__header__container">
-            <div className="bear"></div>
-            <div className="landingPage__title head">
-              <h1>IS THAT A GRIZZLY?</h1>
-              <div className="row">
-                <h3>See them first!</h3>
-                <div className="arrowRight"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div className="landingPage__header__container">
-            <div className="bear"></div>
-            <div className="landingPage__title">
-              <h1>IS THAT A GRIZZLY?</h1>
-              <div className="row">
-                <h3>See them first!</h3>
-                <div className="arrowRight"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </Slider>
+      <Navbar>
+        {innerWidth <= 768 && (
+          <Button onClick={buyTicketClickHandler}>BUY A TICKET</Button>
+        )}
+      </Navbar>
+      <HeroSlider></HeroSlider>
       <div className="landingPage__infoButtonContainer">
-        {INFO_BUTTONS_CONTENT.map((info, key) => (
-          <Button key={key}>
-            <h4>{info.title}</h4>
-            <h4>{info.subTitle}</h4>
-          </Button>
-        ))}
+        {INFO_BUTTONS_CONTENT.map((info, key) =>
+          !(windowWidth <= 768 && key >= 2) ? (
+            <Button
+              onClick={
+                key === INFO_BUTTONS_CONTENT.length - 1
+                  ? buyTicketClickHandler
+                  : () => {}
+              }
+              key={key}
+            >
+              <h4>{info.title}</h4>
+              <h4>{info.subTitle}</h4>
+            </Button>
+          ) : null
+        )}
       </div>
       <div className="landingPage__body">
         {SECTIONS.map((section, key) => (
-          <div key={key} className="landingPage__section">
-            <div className="landingPage__title">
-              <h1>{section.title}</h1>
-              <div className="row">
-                <h3>{section.subTitle}</h3>
-                <div className="arrowRight"></div>
-              </div>
-            </div>
-            <img
-              className={section.img}
-              src={`/assets/landingPage/${section.img}.png`}
-            ></img>
-          </div>
+          <Section
+            title={section.title}
+            subTitle={section.subTitle}
+            img={section.img}
+            key={key}
+          ></Section>
         ))}
       </div>
-      <div className="landingPage__aboutUs">
-        <div className="landingPage__title">
-          <h1>About Us</h1>
-          <div className="row">
-            <h3>What we can do you can too!</h3>
-            <div className="arrowRight"></div>
-          </div>
-        </div>
-      </div>
-      <div className="landingPage__newsletter">
-        <div className="lion" />
-        <div className="landingPage__newsletter__info">
-          <h2>Join our newsletter!</h2>
-          <div className="landingPage__newsletter__row">
-            <TextInput></TextInput>
-            <Button>Sign up</Button>
-          </div>
-        </div>
-      </div>
-      <div className="landingPage__sponsors">
-        {SPONSORS.map((sponsor, key) => (
-          <div className={`sponsor ${sponsor}`} key={key} />
-        ))}
-      </div>
+      <AboutUs></AboutUs>
+      <Newsletter></Newsletter>
+      <Sponsors></Sponsors>
     </>
   );
 };
