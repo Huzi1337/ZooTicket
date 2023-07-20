@@ -13,7 +13,7 @@ const INFO_BUTTONS_CONTENT = [
 
 const SECTIONS = [
   { title: "VISIT US", subTitle: "All the info is here!", img: "eagle" },
-  { title: "LEARN FROM US!", subTitle: "Education... wait, what?", img: "owl" },
+  { title: "LEARN FROM US!", subTitle: "Educate yourself!", img: "owl" },
   { title: "ANIMALS IN OUR ZOO", subTitle: "See them all!", img: "crab" },
   { title: "MORE?", subTitle: "Other attractions!", img: "leopard" },
 ];
@@ -74,7 +74,10 @@ const LandingPage = () => {
                 <div className="arrowRight"></div>
               </div>
             </div>
-            <div className={section.img}></div>
+            <img
+              className={section.img}
+              src={`/assets/landingPage/${section.img}.png`}
+            ></img>
           </div>
         ))}
       </div>
@@ -88,7 +91,7 @@ const LandingPage = () => {
         </div>
       </div>
       <div className="landingPage__newsletter">
-        <div className="lion"></div>
+        <div className="lion" />
         <div className="landingPage__newsletter__info">
           <h2>Join our newsletter!</h2>
           <div className="landingPage__newsletter__row">
@@ -99,7 +102,7 @@ const LandingPage = () => {
       </div>
       <div className="landingPage__sponsors">
         {SPONSORS.map((sponsor, key) => (
-          <div className={sponsor} key={key}></div>
+          <div className={`sponsor ${sponsor}`} key={key} />
         ))}
       </div>
     </>
