@@ -115,6 +115,15 @@
   }
 }
 
+@media (max-width: 425px) {
+  .landingPage__section {
+    height: 240px;
+  }
+  .landingPage__section:nth-child(3) {
+    padding: 10px 5%;
+  }
+}
+
 @media (max-width: 374px) {
   .landingPage__section:nth-child(2) {
     .landingPage__title {
