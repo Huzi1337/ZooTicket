@@ -77,12 +77,15 @@ nav.sections {
 
     .navbar__menuButton {
       border: 0;
-      margin-left: auto;
+      margin-left: 10px;
       margin-right: 10px;
       width: 24px;
       height: 24px;
       background-image: url(/assets/hamburger_base.svg);
       background-color: transparent;
+    }
+    .navbar__menuButton:nth-child(2) {
+      margin-left: auto;
     }
     .navbar__menuButton.active {
       background-image: url(/assets/hamburger_pressed.svg);
@@ -109,9 +112,7 @@ nav.sections {
     img {
       margin: 0 0 0 10px;
     }
-    .navbar__menuButton {
-      margin-left: 10px;
-    }
+
     .mantine-Button-root {
       h4 {
         color: colors.$white;
