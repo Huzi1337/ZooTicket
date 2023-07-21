@@ -1,3 +1,21 @@
+.slick-dots {
+  bottom: 20px;
+}
+.slick-prev {
+  left: 20px;
+}
+.slick-next {
+  right: 20px;
+}
+.slick-next,
+.slick-prev {
+  z-index: 1;
+}
+.slick-dots li button:before,
+.slick-dots li.slick-active button:before {
+  color: white;
+}
+
 .landingPage__header__container {
   width: 100%;
   min-height: 240px;

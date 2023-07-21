@@ -3,7 +3,6 @@
 h1 {
   color: #000;
 
-  /* Header 1 */
   font-family: Montserrat;
   font-size: fonts.$h1;
   font-style: normal;
@@ -15,7 +14,6 @@ h1 {
 h2 {
   color: #000;
 
-  /* Header 2 */
   font-family: Montserrat;
   font-size: fonts.$h2;
   font-style: normal;
@@ -70,6 +68,9 @@ h6 {
   h4 {
     font-size: fonts.$h6;
   }
+}
+.disabled {
+  cursor: not-allowed;
 }
 
 .animation__fadeShow,

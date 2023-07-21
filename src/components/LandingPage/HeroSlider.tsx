@@ -5,7 +5,7 @@ import "./HeroSlider.scss";
 
 const HeroSlider = () => {
   return (
-    <Slider>
+    <Slider dots={true} arrows={true}>
       <div>
         <div className="landingPage__header__container">
           <img src="/assets/landingPage/bear.png" className="bear" />

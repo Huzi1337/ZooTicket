@@ -18,6 +18,10 @@
     margin: 0 90px 0 10px;
     cursor: pointer;
   }
+  a {
+    text-decoration: none;
+    color: black;
+  }
 }
 
 .navbar {
@@ -26,11 +30,6 @@
 
   top: 0;
   left: 0;
-
-  a {
-    text-decoration: none;
-    color: black;
-  }
 }
 
 .options {
@@ -66,6 +65,41 @@ nav.sections {
 
 .navbar_mobile {
   display: none;
+}
+
+.screenBlur {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.9;
+  background-color: black;
+}
+
+.leaveConfirmation__container {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+
+.leaveConfirmation {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  height: 200px;
+  width: 300px;
+  padding: 20px;
+  gap: 10px;
+  z-index: 3;
+}
+
+.leaveConfimartion__row {
+  display: flex;
+  gap: 10px;
 }
 
 @media (max-width: 930px) {
