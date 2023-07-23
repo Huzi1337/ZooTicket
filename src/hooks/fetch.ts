@@ -43,7 +43,6 @@ export const useFetch = (url: string) => {
       dispatch({ type: "FETCHING" });
 
       try {
-        console.log("Fetch hook");
         const response = await fetch(url);
         const data = await response.json();
 
