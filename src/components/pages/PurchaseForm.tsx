@@ -120,7 +120,6 @@ const PurchaseForm = ({ data }: Props) => {
       <Stepper
         active={active}
         onStepClick={setActive}
-        breakpoint="sm"
         allowNextStepsSelect={false}
       >
         {STEPS.map((step, key) => (

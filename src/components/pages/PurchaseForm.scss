@@ -2,7 +2,7 @@
 
 .purchaseForm__container {
   width: 100%;
-
+  flex: 1;
   padding: 19px 3%;
   display: flex;
   flex-direction: column;
@@ -27,10 +27,28 @@
   .mantine-Stepper-root {
     margin-top: 15px;
   }
+  .mantine-Stepper-stepLabel {
+    font-family: "Source Sans 3";
+    font-weight: 700;
+  }
 }
 
 @media (max-width: 600px) {
   .purchaseForm__container {
     padding: 19px 1%;
+  }
+}
+
+@media (max-width: 430px) {
+  .purchaseForm__container {
+    .mantine-Stepper-stepIcon {
+      width: 28px;
+      height: 28px;
+      min-width: 24px;
+      font-size: 14px;
+    }
+    .mantine-Stepper-stepLabel {
+      font-size: 14px;
+    }
   }
 }

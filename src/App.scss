@@ -54,6 +54,12 @@ h6 {
   font-size: fonts.$h6;
 }
 
+#root:has(.purchaseForm__container) {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
 @media (max-width: 690px) {
   h1 {
     font-size: fonts.$headerApp;
