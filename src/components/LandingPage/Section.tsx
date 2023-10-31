@@ -1,6 +1,7 @@
 import { useInView } from "react-intersection-observer";
 import { ANIMATIONS } from "../../assets/data";
 import "./Section.scss";
+import { useEffect, useState } from "react";
 
 type Props = {
   title: string;
@@ -10,7 +11,17 @@ type Props = {
 
 const Section = ({ title, subTitle, img }: Props) => {
   const sectionSlidesRight = img === "eagle" || img === "crab";
+  const [isImgLoaded, setIsImgLoaded] = useState(false);
   const { ref, inView } = useInView();
+
+  useEffect(() => {
+    const image = new Image();
+    image.src = `/assets/landingPage/${img}.png`;
+    image.onload = () => {
+      console.log("loaded");
+      setIsImgLoaded(true);
+    };
+  }, []);
   return (
     <div
       ref={ref}
@@ -31,7 +42,22 @@ const Section = ({ title, subTitle, img }: Props) => {
           </h3>
         </div>
       </div>
-      <img className={img} src={`/assets/landingPage/${img}.png`}></img>
+      <div
+        className="imgWrapper"
+        style={
+          isImgLoaded
+            ? {}
+            : {
+                filter: "blur(5px)",
+                backgroundImage: `url(/assets/landingPage/small/${img}.png)`,
+              }
+        }
+      >
+        <img
+          className={img + (isImgLoaded ? " visible" : " hidden")}
+          src={`/assets/landingPage/${img}.png`}
+        ></img>
+      </div>
     </div>
   );
 };

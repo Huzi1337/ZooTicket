@@ -8,6 +8,7 @@ import { useInView } from "react-intersection-observer";
 
 import "./VisitUs.scss";
 import Grid from "../Grid";
+import { useEffect, useState } from "react";
 
 const SECTION_TITLES = [
   "Plan Your Day with Us",
@@ -21,6 +22,13 @@ type Props = {
 const VisitUs = ({ data: { tickets, membershipsY, content } }: Props) => {
   const navigate = useNavigate();
   const { ref, inView } = useInView();
+  const [isBgLoaded, setIsBgLoaded] = useState(false);
+
+  useEffect(() => {
+    const headerImg = new Image();
+    headerImg.src = "/assets/visitUs/small/bg.png";
+    headerImg.onload = () => setIsBgLoaded(true);
+  }, []);
 
   const ticketClickHandler = () => {
     navigate("/ticket");
@@ -40,6 +48,7 @@ const VisitUs = ({ data: { tickets, membershipsY, content } }: Props) => {
           General Entry: a single-day adventure
         </h3>
         <h3 className="slide-in-header"> Annual Pass: All year round</h3>
+        <div className={"placeholder" + (isBgLoaded ? " hide" : "")}></div>
       </div>
       <div className="visitUs__ticketOptions">
         <TicketOption

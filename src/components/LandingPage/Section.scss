@@ -5,8 +5,23 @@
   height: auto;
   min-height: 800px;
   display: flex;
+  overflow: hidden;
   flex-direction: column;
   justify-content: flex-end;
+  .imgWrapper {
+    margin-bottom: -4px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: left 0;
+    .hidden {
+      transition: opacity 200ms;
+      opacity: 0;
+    }
+    .visible {
+      transition: opacity 200ms;
+      opacity: 1;
+    }
+  }
 }
 .landingPage__section:nth-child(1) {
   width: 55%;
@@ -14,18 +29,23 @@
     --green-gradient,
     radial-gradient(50% 50% at 50% 50%, #51e1b6 29.52%, #179e76 100%)
   );
-  .eagle {
-    max-width: 658px;
-    max-height: 575px;
+  .imgWrapper {
+    .eagle {
+      max-width: 658px;
+      max-height: 575px;
+    }
   }
 }
 .landingPage__section:nth-child(2) {
   width: 45%;
   background: radial-gradient(50% 50% at 50% 50%, #fde094 0%, #e5ac69 100%);
-  .owl {
-    max-width: 572px;
-    max-height: 446px;
-    margin-right: -40px;
+  .imgWrapper {
+    .owl {
+      margin-top: auto;
+      max-width: 572px;
+      max-height: 446px;
+      margin-right: -40px;
+    }
   }
 }
 .landingPage__section:nth-child(3) {
@@ -39,9 +59,11 @@
       #b2c23b 100%
     )
   );
-  .crab {
-    max-width: 640px;
-    max-height: 362px;
+  .imgWrapper {
+    .crab {
+      max-width: 640px;
+      max-height: 362px;
+    }
   }
 }
 .landingPage__section:nth-child(4) {
@@ -54,10 +76,13 @@
     #aae1fa 2.18%,
     #57afd7 100%
   );
-  .leopard {
-    max-width: 596px;
-    max-height: 800px;
+  .imgWrapper {
+    .leopard {
+      max-width: 596px;
+      max-height: 800px;
+    }
   }
+
   .landingPage__title {
     position: absolute;
     align-self: flex-end;
@@ -74,20 +99,26 @@
   }
   .landingPage__section:nth-child(1) {
     flex-direction: row-reverse;
-    .eagle {
-      width: 50%;
+    .imgWrapper {
+      .eagle {
+        width: 50%;
+      }
     }
   }
   .landingPage__section:nth-child(2) {
     flex-direction: row;
-    .owl {
-      width: 50%;
+    .imgWrapper {
+      .owl {
+        width: 50%;
+      }
     }
   }
   .landingPage__section:nth-child(3) {
     align-items: center;
-    .crab {
-      width: 50%;
+    .imgWrapper {
+      .crab {
+        width: 50%;
+      }
     }
   }
   .landingPage__section:nth-child(4) {
@@ -98,8 +129,10 @@
       align-self: center;
       margin-right: 0;
     }
-    .leopard {
-      width: 30%;
+    .imgWrapper {
+      .leopard {
+        width: 30%;
+      }
     }
   }
 }
@@ -109,8 +142,10 @@
     padding-right: 5px;
   }
   .landingPage__section:nth-child(4) {
-    .leopard {
-      width: 40%;
+    .imgWrapper {
+      .leopard {
+        width: 40%;
+      }
     }
   }
 }

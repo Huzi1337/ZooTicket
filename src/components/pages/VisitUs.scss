@@ -2,6 +2,7 @@
 @use "../../assets/fonts";
 
 .visitUs__headScreen {
+  position: relative;
   width: 100%;
   padding: 10% 10% 10% 10%;
   height: 600px;
@@ -19,6 +20,18 @@
   }
   h3 {
     margin-bottom: 15px;
+  }
+  .placeholder {
+    position: absolute;
+    inset: 0;
+    background: no-repeat 90% url(/assets/visitUs/small/bg.png);
+    background-size: cover;
+    filter: blur(5px);
+    pointer-events: none;
+    transition: opacity 0.5s;
+  }
+  .placeholder.hide {
+    opacity: 0;
   }
 }
 
