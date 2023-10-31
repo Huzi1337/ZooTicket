@@ -26,7 +26,7 @@ const VisitUs = ({ data: { tickets, membershipsY, content } }: Props) => {
 
   useEffect(() => {
     const headerImg = new Image();
-    headerImg.src = "/assets/visitUs/small/bg.png";
+    headerImg.src = "/assets/visitUs/bg.png";
     headerImg.onload = () => setIsBgLoaded(true);
   }, []);
 

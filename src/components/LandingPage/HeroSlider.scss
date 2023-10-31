@@ -23,13 +23,33 @@
   position: relative;
   align-items: flex-end;
   justify-content: flex-start;
-
   background: radial-gradient(
     103.28% 50.67% at 29.55% 45%,
     #cabbe9 0.83%,
     #b39fdc 36.29%,
     #907abd 80.56%
   );
+
+  .imgWrapper {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(/assets/landingPage/small/bear.png);
+    filter: blur(5px);
+    transition: filter 200ms;
+  }
+  .imgWrapper * {
+    opacity: 0;
+    transition: opacity 200ms;
+  }
+
+  .imgWrapper.loaded {
+    background-image: unset;
+    filter: blur(0px);
+  }
+
+  .imgWrapper.loaded * {
+    opacity: 1;
+  }
 
   .bear {
     width: 800px;
